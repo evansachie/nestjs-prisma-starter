@@ -8,6 +8,10 @@ class EnvironmentVariables {
   @IsNumber()
   @IsOptional()
   PORT: number;
+
+  @IsString()
+  @IsOptional()
+  ALLOWED_ORIGINS: string;
 }
 
 export function validate(config: Record<string, unknown>) {
