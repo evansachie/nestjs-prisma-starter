@@ -25,3 +25,5 @@ coverage/
 
 # Prisma
 prisma/generated/
+
+/generated/prisma
