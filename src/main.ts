@@ -10,6 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.use(helmet());
+  app.setGlobalPrefix('api', { exclude: ['health', 'docs'] });
 
   app.enableCors({
     origin: process.env.ALLOWED_ORIGINS?.split(',') ?? '*',
