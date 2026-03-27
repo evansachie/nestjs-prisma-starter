@@ -24,6 +24,4 @@ coverage/
 .DS_Store
 
 # Prisma
-prisma/generated/
-
-/generated/prisma
+/src/generated/
