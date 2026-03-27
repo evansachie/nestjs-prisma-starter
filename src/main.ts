@@ -5,7 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
-import { AllExceptionsFilter } from './common/filters/http-exception.filter';
+import { AppExceptionFilter } from './common/errors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bufferLogs: true });
@@ -29,7 +29,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  app.useGlobalFilters(new AllExceptionsFilter());
+  app.useGlobalFilters(new AppExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('API')
