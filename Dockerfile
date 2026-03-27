@@ -24,7 +24,8 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --prod
 
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/src/generated ./src/generated
 
 EXPOSE 3000
 
-CMD ["node", "dist/src/main"]
+CMD ["node", "dist/main"]
